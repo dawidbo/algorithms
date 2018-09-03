@@ -1,0 +1,7 @@
+1. String is immutable - to add new value you have to create new object
+
+	s = "abcde"
+	s[0] = 's' #error
+	s = 's' + s[1:]
+
+2.
