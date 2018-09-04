@@ -29,6 +29,7 @@ def findBob_2(s):
     for i in range(lenS):
         if s[i:i+3] == "bob":
             bob+=1
+            i+=1        
     return "Number of times bob occurs is: "+str(bob)
 
 #s = 'adobdybobobtbobobbobbzbobbsoboborkobobo'

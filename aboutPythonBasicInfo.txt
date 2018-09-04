@@ -4,4 +4,49 @@
 	s[0] = 's' #error
 	s = 's' + s[1:]
 
-2.
+2. squere form mit
+	x = 21
+	epsilon = 0.01
+	step = 0.1
+	guess = 0.0
+
+	while guess <= x:
+	    if abs(guess**2 -x) < epsilon:
+	        break
+	    else:
+	        guess += step
+
+	if abs(guess**2 - x) >= epsilon:
+	    print('failed')
+	else:
+	    print('succeeded: ' + str(guess))
+
+3.  
+	# bisection
+# szukanie pierwiastka
+# ----a---------c-----------b------->
+# epsilon - dokladnosc, precyzja
+# (a+b)/2 = c, c**2 > b to b = c, c**2 < b to a = c, c**2 == n a=b=c
+# 1. sprawdz czy jest co podzielic
+# 2. podziel na 1/2 
+	n = 2.0
+    a = 0.0
+    b = n
+    c = 0.0
+    epislon = 0.1
+
+    print( "pierwiastek: " + str( n ) )
+        
+    while abs( b - a ) > epislon:
+        c = ( a + b )/2 
+        print( str(a) + ", " + str(c) + ", " + str(b) + ", ")  
+        print( "c**2 = " + str( c**2 ) )
+        if c**2 > n:
+            b = c
+        elif c**2 < n:
+            a = c
+        else:
+            a = c
+            b = c
+        
+        print( "przedzial: < " + str( a ) + ", "+ str( b ) + " > " )
