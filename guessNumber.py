@@ -12,13 +12,13 @@ arr = randomizeList(1,10,6)
 while isNotFound:
     counter += 1
     try:
-        findNum = int( input( "Guess a number: " ) )
+        findNum = int(input( "Guess a number: "))
     except ValueError:
-        print( "It's not a number !!! Try again." )
+        print("It's not a number !!! Try again.")
     else:
         for i in arr:
             if i == findNum:
                 isNotFound = False
                 break
                 
-print( "You found number: " + str( findNum ) + " in " + str( counter ) + " test/s !!!" )
+print("You found number: " + str( findNum ) + " in " + str( counter ) + " test/s !!!")
