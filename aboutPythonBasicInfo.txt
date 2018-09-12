@@ -50,3 +50,79 @@
             b = c
         
         print( "przedzial: < " + str( a ) + ", "+ str( b ) + " > " )
+
+
+Testing:
+
+
+## black boxing - sprawdzanie wejscie wyjscie, empty : one set , large set  
+## glass boxing - sparwdzanie wewnatrz funcji,musi wejesc wszedzie i posprawdzac wynik( white boxing )
+## grayed boxing - razem
+
+
+## Exception and assertions
+## raise Exception("string descriptive")
+
+m = dict(alex=2)
+print(m["alex"],end='')
+
+'''except dziala jak if czeka gdzie wejdzie i koniec'''
+# Exception hierarchy https://docs.python.org/3/library/exceptions.html
+a = [0]
+b = [0]
+try:
+    a[0] = int(input("First number: "))
+    b[0] = int(input("Second number: "))
+    print(a[0]/b[0])
+    print("ok")
+except ZeroDivisionError:
+    print( "ZeroDivisionError")
+except ValueError:
+    print( "ValueError:")
+except IndexError:
+    print( "IndexError" )
+except:
+    print("hell no one konws")
+
+
+def get_rartios( L1, L2 ):
+    """ lista 1 and lista 2 as paremeter equals elements and type in numeric
+    return list ratios """
+
+    ratios = []
+    for index in range( len(L1) ):
+        try:
+            ratios.append( L1[index] / float(L2[index]) )
+        except ZeroDivisionError:
+            ratios.append( 'NaN' )
+        except:
+            raise ValueError('zle argumenty') #przerywa program nie ma handlera
+    return ratios       
+ 
+     
+L1 = [1,2,3,4]
+L2 = [1,2,3,0] 
+
+print( get_rartios(L1,L2) )
+
+
+def get_satas( L1 ):
+    # lista 1, elt1 , elt2, avg( elt1, elt2 )
+    L2 = []
+    for elt in L1:
+        L2.append( [elt[0], elt[1], avg(elt[1])])  
+    return L2
+    
+def avg( L1 ):
+    try:
+        return sum(L1) / len(L1)
+    except ZeroDivisionError:
+        print("Zero")
+        return 0.0
+
+L1 = [[['peter', 'parker'],[9.0, 8.0, 7.8]],
+    [['bruce','wayne'], [2.3, 6.9, 10]],
+    [['capitan', 'america'], [2.3, 5.6, 7.9]],
+    [['deadpool'],[]]] 
+
+print( get_satas(L1) )
